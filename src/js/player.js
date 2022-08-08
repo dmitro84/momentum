@@ -79,15 +79,6 @@ export default function turnPlayer() {
         playAudio();
     }
 
-    function playNextTrack() {
-        isPlay = false;
-        playNum++;
-        toggleBtn();
-        playAudio();
-        removeClassActive();
-
-    }
-
     function removeClassActive() {
         document.querySelectorAll('.play-item')[playNum].classList.remove('item-active')
     }
@@ -95,7 +86,7 @@ export default function turnPlayer() {
     playBtn.addEventListener('click', playAudio)
     playPrevBtn.addEventListener('click', onClickPlayPrev);
     playNextBtn.addEventListener('click', onClickPlayNext);
-    audio.addEventListener('ended', playNextTrack);
+    audio.addEventListener('ended', onClickPlayNext);
 
 }
 
