@@ -13,7 +13,7 @@ export default async function getQuotes() {
 
     }
     catch (e) {
-        alert('Визникла шибка получения цитат')
+        alert('Возникла шибка получения цитат')
     }
 }
 
