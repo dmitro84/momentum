@@ -40,7 +40,7 @@ export default function showWeather() {
         if (localStorage.getItem('city')) {
             city.value = localStorage.getItem('city');
             getWeather(city.value);
-            console.log(localStorage.getItem('city'));
+            
         } else {
             localStorage.setItem('city', "Minsk");
             city.value = localStorage.getItem('city');
