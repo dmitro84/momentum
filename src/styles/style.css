@@ -354,15 +354,60 @@ body {
 
 .volume-header input[type='range'] {
   width: 70px;
-  height: 7px;
-  background-color: #fff;
+  height: 6px;
+  background: -webkit-linear-gradient(left, rgb(88, 189, 74) 0%, rgb(88, 189, 74) var(--progress, 50%), #fff var(--progress, 0%), #fff 100%);
+  opacity: 0.8;
   margin-right: 10px;
   outline: none;
   -webkit-appearance: none;
+
 }
 
-.volume-header input[type='range']:hover {
+.volume-header input[type='range']::-moz-progress-bar {
+  width: 70px;
+  height: 6px;
+  background: -moz-linear-gradient(left, rgb(88, 189, 74) 0%, rgb(88, 189, 74) 50%, #fff 25%, #fff 100%);
+  opacity: 0.8;
+  margin-right: 10px;
+  outline: none;
+  -moz-appearance: none;
+}
+
+.volume-header input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #FF940A;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+
+}
+
+.volume-header input[type='range']::-moz-range-thumb {
+  -moz-appearance: none;
+  background-color: #FF940A;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+
+}
+
+.volume-header input[type='range']::-moz-range-thumb:hover,
+.volume-header input[type='range']::-moz-range-thumb:active {
   cursor: pointer;
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
+}
+
+
+.volume-header input[type='range']::-webkit-slider-thumb:hover,
+.volume-header input[type='range']::-webkit-slider-thumb:active {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
 }
 
 .current-progress {
