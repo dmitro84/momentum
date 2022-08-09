@@ -55,6 +55,7 @@ export default function turnPlayer() {
         if (isPlay) {
             isPlay = false;
             toggleBtn();
+            changeButtonPlayList();
             return pauseAudio();
         }
 
@@ -66,10 +67,11 @@ export default function turnPlayer() {
         isPlay = true;
         document.querySelectorAll('.play-item')[playNum].classList.add('item-active');
         songTitle.textContent = userPlayList[playNum].title;
+        changeButtonPlayList();
 
     }
 
-    function pauseAudio(){
+    function pauseAudio() {
         audio.pause();
     }
 
@@ -83,7 +85,6 @@ export default function turnPlayer() {
             playNum = userPlayList.length - 1;
         } else {
             playNum--;
-
         }
 
         if (isPlay) {
@@ -111,7 +112,7 @@ export default function turnPlayer() {
     }
 
     function removeClassActive() {
-        document.querySelectorAll('.play-item')[playNum].classList.remove('item-active')
+        document.querySelectorAll('.play-item')[playNum].classList.remove('item-active');
         document.querySelectorAll('.play-item')[playNum].style.setProperty("--display-pause", 'none');
         document.querySelectorAll('.play-item')[playNum].style.setProperty("--display-play", 'block');
     }
@@ -164,8 +165,8 @@ export default function turnPlayer() {
         removeClassActive();
         playNum = +evt.target.dataset.idx;
         if (isPlay) {
-           removeClassActive();
-           pauseAudio();
+            removeClassActive();
+            pauseAudio();
         } else {
             evt.target.style.setProperty("--display-play", 'none');
             evt.target.style.setProperty("--display-pause", 'block');
@@ -174,8 +175,19 @@ export default function turnPlayer() {
 
     }
 
+    function changeButtonPlayList() {
+        const playItem = document.querySelectorAll('.play-item')[playNum];
+        if (isPlay) {
+            playItem.style.setProperty("--display-pause", 'block');
+            playItem.style.setProperty("--display-play", 'none');
+        } else {
+            playItem.style.setProperty("--display-pause", 'none');
+            playItem.style.setProperty("--display-play", 'block');
+        }
+    }
+
     document.querySelectorAll('.play-item').forEach((el) => {
-        el.addEventListener('click', onClickChangeTrack)
+        el.addEventListener('click', onClickChangeTrack);
     })
 
 
