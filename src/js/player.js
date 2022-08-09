@@ -55,7 +55,7 @@ export default function turnPlayer() {
         if (isPlay) {
             isPlay = false;
             toggleBtn();
-            return audio.pause();
+            return pauseAudio();
         }
 
         audio.src = userPlayList[playNum].src;
@@ -67,6 +67,10 @@ export default function turnPlayer() {
         document.querySelectorAll('.play-item')[playNum].classList.add('item-active');
         songTitle.textContent = userPlayList[playNum].title;
 
+    }
+
+    function pauseAudio(){
+        audio.pause();
     }
 
     function toggleBtn() {
@@ -108,6 +112,8 @@ export default function turnPlayer() {
 
     function removeClassActive() {
         document.querySelectorAll('.play-item')[playNum].classList.remove('item-active')
+        document.querySelectorAll('.play-item')[playNum].style.setProperty("--display-pause", 'none');
+        document.querySelectorAll('.play-item')[playNum].style.setProperty("--display-play", 'block');
     }
 
     function setTrackDuration() {
@@ -141,11 +147,11 @@ export default function turnPlayer() {
         }
 
 
-            setVolumeProgress(+volumeControl.value)
+        setVolumeProgress(+volumeControl.value)
 
     }
     function setVolumeProgress(progress) {
-        const value = `${progress*100}%`
+        const value = `${progress * 100}%`
         volumeControl.style.setProperty('--progress', value)
     }
     function onClickChangeTime(e) {
@@ -158,7 +164,11 @@ export default function turnPlayer() {
         removeClassActive();
         playNum = +evt.target.dataset.idx;
         if (isPlay) {
-            playAudio();
+           removeClassActive();
+           pauseAudio();
+        } else {
+            evt.target.style.setProperty("--display-play", 'none');
+            evt.target.style.setProperty("--display-pause", 'block');
         }
         playAudio();
 
