@@ -141,8 +141,13 @@ export default function turnPlayer() {
         }
 
 
-    }
+            setVolumeProgress(+volumeControl.value)
 
+    }
+    function setVolumeProgress(progress) {
+        const value = `${progress*100}%`
+        volumeControl.style.setProperty('--progress', value)
+    }
     function onClickChangeTime(e) {
         const timelineWidth = window.getComputedStyle(progressLine).width.slice(0, -2);
         const timeToSeek = e.offsetX / parseInt(timelineWidth) * audio.duration;
@@ -162,6 +167,8 @@ export default function turnPlayer() {
     document.querySelectorAll('.play-item').forEach((el) => {
         el.addEventListener('click', onClickChangeTrack)
     })
+
+
 
     playBtn.addEventListener('click', playAudio);
     playPrevBtn.addEventListener('click', onClickPlayPrev);
