@@ -324,7 +324,7 @@ body {
   white-space: pre;
 }
 
-.artSong-header {
+.song-title {
   text-align: center;
   font-size: 15px;
   color: #fff;
@@ -336,13 +336,19 @@ body {
   align-items: center;
 }
 
-.muteButton {
+.mute-button {
   display: flex;
   align-items: center;
   margin: 12px;
+  border: none;
+  background-color: transparent;
 }
 
-.muteButton:hover {
+.muted {
+  opacity: 0.4;
+}
+
+.mute-button:hover {
   cursor: pointer;
 }
 
@@ -357,4 +363,14 @@ body {
 
 .volume-header input[type='range']:hover {
   cursor: pointer;
+}
+
+.current-progress {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background-color: #FF940A;
+  z-index: 1;
 }
