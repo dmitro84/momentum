@@ -86,24 +86,8 @@ module.exports = {
     compress: true,
     port: 3000,
     open: 'chrome',
-    headers: {
-        "Access-Control-Allow-Origin": "*",
-    },
-    proxy: {
-      '/api': {
-         target: {
-            host: "0.0.0.0",
-            protocol: 'http:',
-            port: 8080
-         },
-         pathRewrite: {
-            '^/api': ''
-         }
-      }
-   }
-    
-  },
-  plugins: [
+   },
+    plugins: [
     new MiniCssExtractPlugin({
       filename: `./css/${filename('css')}`
     }),
