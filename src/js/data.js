@@ -6,5 +6,3 @@ export default function showDate(lang) {
     const currentDate = date.toLocaleDateString(lang, options);
     datePage.textContent = currentDate;
 }
-
-

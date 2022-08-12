@@ -17,7 +17,7 @@ export default function showWeather() {
             const res = await fetch(url);
             const data = await res.json();
 
-    
+
             weatherIcon.classList.add(`owf-${Math.round(data.weather[0].id)}`);
             temperature.textContent = `${Math.round(data.main.temp)}°C`;
             weatherDescription.textContent = data.weather[0].description;
@@ -43,7 +43,7 @@ export default function showWeather() {
         if (localStorage.getItem('city')) {
             city.value = localStorage.getItem('city');
             getWeather(city.value);
-            
+
         } else {
             localStorage.setItem('city', "Minsk");
             city.value = localStorage.getItem('city');
@@ -56,6 +56,3 @@ export default function showWeather() {
 
     getWeather("Minsk");
 }
-
-
-

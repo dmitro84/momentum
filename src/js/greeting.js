@@ -14,7 +14,7 @@ export function getTimeOfDay(hour, lang='us') {
         return greetingTranslation[lang].afternoon
     }
 
-    
+
     if (hour >= 18 && hour < 24) {
         return greetingTranslation[lang].evening
     }
