@@ -5,12 +5,15 @@ const wind = document.querySelector('.wind');
 const humidity = document.querySelector('.humidity');
 const city = document.querySelector('.city');
 
+
+
+
 export default function showWeather() {
 
 
-    async function getWeather(city) {
+    async function getWeather(town) {
         try {
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=${process.env.ID_APP_WEATHER}&units=metric`
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${town}&lang=en&appid=${process.env.ID_APP_WEATHER}&units=metric`
             const res = await fetch(url);
             const data = await res.json();
 
