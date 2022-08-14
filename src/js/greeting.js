@@ -1,11 +1,11 @@
-import greetingTranslation from "./translate";
+import {greetingTranslation} from "./translate";
 
 
 const greeting = document.querySelector('.greeting');
 
 const date = new Date();
 
-export function getTimeOfDay(hour, lang='us') {
+export function getTimeOfDay(hour, lang='en') {
     if (hour >= 6 && hour < 12) {
         return greetingTranslation[lang].morning
     }

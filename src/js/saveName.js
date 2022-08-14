@@ -1,5 +1,6 @@
 const name = document.querySelector('.name');
 
+
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
   }
