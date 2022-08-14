@@ -86,8 +86,10 @@ module.exports = {
     compress: true,
     port: 3000,
     open: 'chrome',
-  },
-  plugins: [
+    watchFiles: ["./src/*"],
+    hot: true
+   },
+    plugins: [
     new MiniCssExtractPlugin({
       filename: `./css/${filename('css')}`
     }),
@@ -97,6 +99,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "./src/sounds", to: "sounds" },
+        { from: "./src/data", to: "data" },
       ],
     }),
     new Dotenv()
@@ -155,3 +158,4 @@ module.exports = {
   },
   optimization: optimization()
 };
+

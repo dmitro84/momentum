@@ -1,15 +1,20 @@
+import { getRandomNum } from "./functions";
+
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
 
-export default async function getQuotes() {
+export default async function getQuotes(lang='en') {
     try {
-        const quotesURL = 'https://favqs.com/api/qotd';
+        const quotesURL = 'data/data.json';
         const res = await fetch(quotesURL);
         const data = await res.json();
 
-        quote.textContent = data.quote.body;
-        author.textContent = data.quote.author;
+        const quoteRandom = data[getRandomNum(0, data.length-1)]
+
+
+        quote.textContent = quoteRandom[lang].text;
+        author.textContent = quoteRandom[lang].author;
 
     }
     catch (e) {
@@ -17,4 +22,5 @@ export default async function getQuotes() {
     }
 }
 
-changeQuote.addEventListener('click', getQuotes);
+changeQuote.addEventListener('click', ()=>getQuotes(localStorage.getItem('lang')));
+

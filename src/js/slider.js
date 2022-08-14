@@ -1,16 +1,10 @@
+import { getRandomNum } from "./functions";
 import { getTimeOfDay } from "./greeting";
 
 const btnNext = document.querySelector('.slide-next');
 const btnPrev = document.querySelector('.slide-prev');
 
 const timeOfDay = getTimeOfDay(new Date().getHours());
-
-
-function getRandomNum(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 let bgNum = getRandomNum(1, 20);
 
