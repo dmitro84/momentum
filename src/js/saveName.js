@@ -13,3 +13,4 @@ function setLocalStorage() {
     }
   }
   window.addEventListener('load', getLocalStorage)
+

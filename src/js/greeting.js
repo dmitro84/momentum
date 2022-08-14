@@ -27,3 +27,4 @@ export function getTimeOfDay(hour, lang='en') {
 export default function showGreeting(lang) {
     greeting.textContent = `${lang === 'ru' ? '' : 'Good'} ${getTimeOfDay(date.getHours(), lang)}, `
 }
+

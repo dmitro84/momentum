@@ -23,3 +23,4 @@ export default async function getQuotes(lang='en') {
 }
 
 changeQuote.addEventListener('click', ()=>getQuotes(localStorage.getItem('lang')));
+
