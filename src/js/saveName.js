@@ -1,7 +1,7 @@
 const name = document.querySelector('.name');
 
-
-function setLocalStorage() {
+export default function saveName(){
+  function setLocalStorage() {
     localStorage.setItem('name', name.value);
   }
   window.addEventListener('beforeunload', setLocalStorage)
@@ -13,4 +13,6 @@ function setLocalStorage() {
     }
   }
   window.addEventListener('load', getLocalStorage)
+}
+
 

@@ -201,8 +201,4 @@ export default function turnPlayer() {
     muteBtn.addEventListener('click', onClickMute)
     volumeControl.addEventListener('input', onChangeVolume);
     progressLine.addEventListener('click', onClickChangeTime)
-
-
-
 }
-

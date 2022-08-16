@@ -1,4 +1,4 @@
-import showDate from "./data";
+import showDate from "./date";
 import showGreeting from "./greeting";
 import getQuotes from "./qoutes";
 import { cityTranslator } from "./translate";
