@@ -86,7 +86,7 @@ module.exports = {
     compress: true,
     port: 3000,
     open: 'chrome',
-    watchFiles: ["./src/*"],
+    watchFiles: ["./src/*.html"],
     hot: true
    },
     plugins: [
